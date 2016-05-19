@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="scotchTodo">
+
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Bucket-List</title>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+    <script> //J-query
+$(document).ready(function(){
+    $("#clickhere").click(function(){
+        $("#inputhere").slideToggle("slow");
+    });
+});
+</script>
+    
+<style>
+#inputhere
+{
+    display:none;
+}
+</style>
+ 
+</head>
+<body   class="w3-container w3-sand" ng-controller="mainController">
+<div id="head" class="w3-container w3-deep-purple w3-tangerine" >
+<span class="w3-tag w3-xxlarge w3-padding w3-round-large w3-red w3-center w3-left w3-margin-top w3-margin-bottom">
+My<br>
+Bucket-List
+</span><br><br>
+<h2 id="demo" style="text-align:center;" class="w3-animate-opacity"></h2>
+</div>
+<div class="w3-pale-blue w3-leftbar w3-border-blue w3-margin-top w3-padding-xxlarge" ng-repeat="todo in todos">
+{{todo.text}}<span  ng-click="deleteTodo(todo._id)" class="w3-right" style="cursor:pointer;"><b>x</b></span>
+</div>
+<div class="w3-container w3-center w3-light-grey">
+<p id="clickhere" style="text-align:center;font-size:150%;cursor:pointer;"><b>Click Here To Add Wish</b></p>
+</div> 
+<div id="inputhere" class="w3-container w3-light-blue">
+<div class="w3-container w3-light-blue">
+  <h2>Wonderfull Wish</h2>
+</div>
+<p class="w3-label w3-text-brown" style="font-size:130%;"><b>Your Wish</b></p>
+<input type="text" size=29 ng-model="formData.text" class="w3-input w3-border w3-sand"><br>
+<input type="button" value="Add" ng-click="createTodo()" class="w3-btn w3-light-grey"><br><br>
+</div>
+
+
+</body>
+</html>
